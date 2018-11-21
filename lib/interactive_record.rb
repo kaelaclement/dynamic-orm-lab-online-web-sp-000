@@ -58,7 +58,7 @@ class InteractiveRecord
     if value.to_i > 0
       sql = "SELECT * FROM #{self.table_name} WHERE #{column_name} = #{value};"
     else
-      sql = "SELECT * FROM #{self.table_name} WHERE #{column_name = '#{value}';}"
+      sql = "SELECT * FROM #{self.table_name} WHERE #{column_name} = '#{value}';"
     end
 
     DB[:conn].execute(sql)
