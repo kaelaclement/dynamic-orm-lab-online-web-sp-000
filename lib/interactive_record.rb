@@ -55,7 +55,7 @@ class InteractiveRecord
     column_name = attribute_info[0].to_s
     value = attribute_info[1]
 
-    if value.integer?
+    if value.to_i > 0
       sql = "SELECT * FROM #{self.table_name} WHERE #{column_name} = #{value};"
     else
       sql = "SELECT * FROM #{self.table_name} WHERE #{column_name = '#{value}';}"
