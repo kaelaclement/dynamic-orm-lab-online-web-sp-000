@@ -49,4 +49,18 @@ class InteractiveRecord
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}';"
     DB[:conn].execute(sql)
   end
+
+  def self.find_by(attribute)
+    attribute_info = attribute.to_a.flatten
+    column_name = attribute_info[0].to_s
+    value = attribute_info[1]
+
+    if value.integer?
+      sql = "SELECT * FROM #{self.table_name} WHERE #{column_name} = #{value};"
+    else
+      sql = "SELECT * FROM #{self.table_name} WHERE #{column_name = '#{value}';}"
+    end
+
+    DB[:conn].execute(sql)
+  end
 end
